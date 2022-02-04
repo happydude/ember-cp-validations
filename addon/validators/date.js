@@ -13,7 +13,7 @@ import EmberValidator from 'ember-cp-validations/-private/ember-validator';
  *
  *  ```javascript
  *  validator('date', {
- *    after: 'now',
+ *    after: new Date(),
  *    before: '1/1/2020',
  *    precision: 'day',
  *    format: 'M/D/YYY',
@@ -26,5 +26,5 @@ import EmberValidator from 'ember-cp-validations/-private/ember-validator';
  *  @extends Base
  */
 export default EmberValidator.extend({
-  _evType: 'date'
+  _evType: 'date',
 });

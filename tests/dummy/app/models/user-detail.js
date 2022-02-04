@@ -16,12 +16,10 @@ const Validations = buildValidations(
       validators: [
         validator('presence', true),
         validator('date', {
-          before: 'now',
-          after: computed(function() {
-            return moment()
-              .subtract(120, 'years')
-              .format('M/D/YYYY');
-          }).volatile(),
+          before: new Date(),
+          get after() {
+            return moment().subtract(120, 'years').format('M/D/YYYY');
+          },
           format: 'M/D/YYYY',
           message(type, value /*, context */) {
             if (type === 'before') {
